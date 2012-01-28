@@ -6,7 +6,12 @@
     });
 
     function Tootr() {
-
+        this.colors = {
+            life: '#737d17',
+            death: '#333',
+            sex: '#9b6262',
+            money: '#4c8046'
+        };
     }
 
     Tootr.prototype = {
@@ -30,11 +35,16 @@
                     var elem = $('#thetweet');
 
                     elem.find('.container').fadeOut(function(){
+                        $('body').animate({
+                            'background-color': $.Color( self.colors[stream] )
+                        });
                         elem.find('.user').html('@'+stream);
                         elem.find('.name').html(stream.charAt(0).toUpperCase() + stream.slice(1));
                         elem.find('.text').html(text);
+                        elem.find('.avatar img').attr({src: 'img/'+stream+'.png'});
 
                         elem.find('.container').fadeIn();
+
                     });
                 }
             });
