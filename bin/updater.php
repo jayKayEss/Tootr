@@ -6,7 +6,7 @@ require_once dirname(__FILE__).'/../lib/Parser.php';
 require_once dirname(__FILE__).'/../lib/Generator.php';
 require_once dirname(__FILE__).'/../lib/TwitterClient.php';
 
-$naptime = 20;
+$naptime = 120;
 
 $db = new Tootr\DB();
 $clients = array();
@@ -32,8 +32,7 @@ while(1) {
             error_log($status->text);
             $parser->parse($status->text);
         }
-
-        sleep($naptime);
     }
+    sleep($naptime);
 }
 
