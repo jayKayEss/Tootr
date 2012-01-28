@@ -13,19 +13,20 @@ class Parser {
     }
 
     function parse($text) {
-//        $words = preg_split('/\s+|([!?.,]+)\b/', $text, null, \PREG_SPLIT_DELIM_CAPTURE);
-          $words = preg_split('/\s+/', $text);
-
-//        print_r($words);
+        $words = preg_split('/\s+/', $text);
 
         $lastWord = null;
         $endOfSentence = false;
 
         foreach ($words as $word) {
             if (empty($word)) continue;
+            if (preg_match('/^http/', $word)) continue;
+            if (preg_match('/^@/', $word)) continue;
+            if (strtoupper($word) == 'RT') continue;
+            if (strtolower($word) == 'moneyblogs') continue;
+            if (strtolower($word) == '.info') continue;
 
-//            if (in_array($word, array('.', '!', '?'))) {
-            if (preg_match('/\.$/', $word)) {
+            if (preg_match('/[.?!]$/', $word)) {
                 $endOfSentence = true;
             }
 
