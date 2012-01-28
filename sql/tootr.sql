@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.41, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.11, for osx10.6 (i386)
 --
 -- Host: localhost    Database: tootr
 -- ------------------------------------------------------
--- Server version	5.1.41-3ubuntu12.10
+-- Server version	5.5.11
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,15 +24,16 @@ DROP TABLE IF EXISTS `edge`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `edge` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `stream_id` int(10) unsigned NOT NULL,
   `from_id` int(10) unsigned NOT NULL,
   `to_id` int(10) unsigned NOT NULL,
   `rank` int(4) DEFAULT NULL,
   `myrand` int(4) unsigned NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `stream_id` (`stream_id`,`from_id`,`to_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=54186 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `stream_id` (`stream_id`,`from_id`,`to_id`),
+  KEY `updated` (`updated`)
+) ENGINE=MyISAM AUTO_INCREMENT=63297 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +48,7 @@ CREATE TABLE `node` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `term` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=17803 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17307 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +63,7 @@ CREATE TABLE `stream` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -74,4 +75,4 @@ CREATE TABLE `stream` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-01-28  1:41:08
+-- Dump completed on 2012-01-28 16:04:18

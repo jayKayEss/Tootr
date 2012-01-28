@@ -74,19 +74,17 @@ EOL;
         $query->execute(array($streamId, $fromId));
 
         $picked = null;
-        $count = 0;
+        $count = 1;
 
         while ($rec = $query->fetch(\PDO::FETCH_ASSOC)) {
-            for ($i=0; $i<$rec['rank']; $i++) {
-                $count++;
-                $myRand = rand(1, $count);
+            $max = $count + $rec['rank'];
+            $rand = rand(1, $max);
 
-//                error_log("EDGE: FROM {$rec['from_id']}, TO {$rec['to_id']}, C $count, R $myRand, I $i");
-
-                if ($myRand == $count) {
-                    $picked = $rec;
-                }
+            if ($rand > $count && $rand <= $max) {
+                $picked = $rec;
             }
+
+            $count = $max;
         }
 
         if (isset($picked)) {

@@ -21,7 +21,7 @@
             var self = this;
             setInterval(function(){
                 self.displayTweet();
-            }, 10000);
+            }, 15000);
         },
 
         displayTweet: function() {
