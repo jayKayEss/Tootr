@@ -1,0 +1,64 @@
+@import url(http://fonts.googleapis.com/css?family=Telex&subset=latin,latin-ext);
+
+body {
+    background-color: #333;
+    background-image: url(../img/bg.png);
+    font-family: 'Telex', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+#bgCanvas {
+    height: 100%;
+    width: 100%;
+}
+
+#thetweet {
+    background: #000;
+    width: 800px;
+    padding: 24px;
+    min-height: 230px;
+    border-radius: 8px;
+
+    margin: -115px 0px 0px -400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+#thetweet .container {
+    display: none;
+}
+
+#thetweet div {
+    color: #ccc;
+}
+
+#thetweet .avatar {
+    width: 64px;
+    height: 64px;
+    background: #666;
+    float: left;
+    margin 0px;
+    margin-right: 24px;
+    margin-bottom: 14px;
+}
+
+#thetweet .user {
+    font-size: 24px;
+    line-height: 34px;
+}
+
+#thetweet .name {
+    font-size: 24px;
+    color: #666;
+    text-indent: 4px;
+}
+
+#thetweet .text {
+    font-size: 32px;
+    line-height: 46px;
+    clear: both;
+    padding-top: 12px;
+}
+

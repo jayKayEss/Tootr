@@ -24,7 +24,7 @@ EOL;
     protected $dbh;
 
     function __construct() {
-       $this->dbh = new \PDO('mysql:host=localhost;dbname=tootr', self::USER, self::PASS); 
+       $this->dbh = new \PDO('mysql:host=127.0.0.1;dbname=tootr', self::USER, self::PASS); 
     }
 
     function getStreamId($name) {
